@@ -1,38 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { RouterModule} from '@angular/router';
-import { AppRoutes } from './app.routing';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HomeComponent } from './pages/home/home.component';
 import { BaseLayoutComponent } from './shared/base-layout/base-layout.component';
 import { AuthLayoutComponent } from './shared/auth-layout/auth-layout.component';
-import { HomeComponent } from './pages/home/home.component';
-import {FlexLayoutModule} from '@angular/flex-layout';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
+    HomeComponent,
     BaseLayoutComponent,
-    AuthLayoutComponent,
-    HomeComponent
+    AuthLayoutComponent
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule,
-    RouterModule.forRoot(AppRoutes, { useHash: true, enableTracing: false, scrollPositionRestoration: 'enabled'}),
     FlexLayoutModule,
     MatToolbarModule,
     MatButtonModule,
     MatIconModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
