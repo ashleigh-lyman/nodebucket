@@ -1,0 +1,42 @@
+<!--
+  Signin.component.html
+  Contains card and form element to display login screen
+-->
+
+<div fxLayout="column">
+<mat-card fxFlex>
+  <mat-card-title>
+    Employee Sign-in Page
+  </mat-card-title>
+
+  <mat-card-subtitle>
+    You must enter a valid Employee ID to proceed
+  </mat-card-subtitle>
+
+  <form [formGroup]="form" (ngSubmit)="login(); form.reset();">
+    <mat-card-content>
+      <mat-form-field class="inputId">
+        <input matInput
+          [formControl]="form.controls['empId']"
+          placeholder="Employee ID"/>
+
+  <!--If there is an error with the user input an error message displays-->
+      <mat-error *ngIf="form.controls['empId'].hasError('required')">
+      Employee ID is a required field. Please enter an Employee ID.
+      </mat-error>
+
+      </mat-form-field>
+
+    </mat-card-content>
+
+  <!--Material button -->
+  <mat-card-actions align="end">
+    <button type="submit" fxFlex mat-raised-button color="primary" [disabled]="!form.valid">Sign-in</button>
+
+  </mat-card-actions>
+  </form>
+</mat-card>
+
+</div>
+
+<!--End of Signin.component.html-->
