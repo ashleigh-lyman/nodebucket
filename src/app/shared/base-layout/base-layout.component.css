@@ -1,40 +1,47 @@
 .logo {
     margin-left: 75px;
     font-size: 24px;
-    font-weight: lighter;;
-  }
-  
-  .navbar-container {
+    font-weight: lighter;
+    ;
+}
+
+.navbar-container {
     padding: 5px;
-  }
-  
-  .navbar-link {
+}
+
+.navbar-link {
     font-size: 24px;
     font-weight: lighter;
-  }
-  
-  .main-content {
+}
+
+.main-content {
     padding-left: 30px;
-  }
-  
-  .footer {
+}
+
+.footer {
     bottom: 0;
     position: absolute;
     width: 100%;
-  }
-  
-  .footer-content {
+}
+
+
+/* Base-layout Component page css */
+
+.footer-content {
     font-size: 16px;
     font-weight: lighter;
     padding-left: 100px;
     letter-spacing: 3px;
-  }
-  
-  .bu-link {
+}
+
+.bu-link {
     text-decoration: none;
-  }
-  
-  .bu-link:hover {
+}
+
+.bu-link:hover {
     text-decoration: underline;
-  }
-  
+}
+
+body {
+    background-color: white;
+}

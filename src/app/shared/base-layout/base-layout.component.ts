@@ -1,3 +1,15 @@
+/*
+============================================
+; Title:  base-layout.component.ts
+; Author: Ashleigh Lyman
+; Date:   27 September 2020
+; Modified By: Ashleigh Lyman
+; Description: Base-layout component page
+;===========================================
+*/
+
+
+//Import statements
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,7 +20,7 @@ import { Component, OnInit } from '@angular/core';
 export class BaseLayoutComponent implements OnInit {
 
   year: number = Date.now();
-  
+
   constructor() { }
 
   ngOnInit(): void {
