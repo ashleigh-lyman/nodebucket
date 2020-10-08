@@ -10,7 +10,8 @@
 
 
 const express = require('express');
-const mongoose = require('mongoose');
+const { consoleTestResultHandler } = require('tslint/lib/test');
+const { readJsonConfigFile } = require('typescript');
 const Employee = require('../models/employee');
 const BaseResponse = require('../services/base-response');
 const ErrorResponse = require('../services/error-response');
@@ -171,26 +172,58 @@ router.put('/:empId/tasks', async(req, res) => {
 //Removes/deletes a task from either list
 router.delete('/:empId/tasks/:taskId', async(req, res) => {
 
-    const taskId = req.params.taskId;
-
-    taskId.findByIdAndRemove(taskId)
-        .then(data => {
-            if (!data) {
-                res.status(404).send({
-                    message: 'Error. Try again.'
-                });
+    try {
+        Employee.findOne({ 'empId': req.params.empId }, function(err, employee) {
+            if (err) {
+                console.log(err);
+                const deleteTaskMongoDbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+                res.status(500).send(deleteTaskMongoDbErrorResponse.toObject());
             } else {
-                res.send({
-                    message: 'Successfully deleted.'
-                });
+                console.log(employee);
+
+                const todoItem = employee.todo.find(item => item._id.toString() === req.params.taskId);
+                const doneItem = employee.done.find(item => item._id.toString() === req.params.taskId);
+
+                if (todoItem) {
+                    employee.todo.id(todoItem._id).remove();
+                    employee.save(function(err, updatedTodoItemEmployee) {
+                        if (err) {
+                            console.log(err);
+                            const deleteTodoItemOnSaveMongoDbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+                            res.status(500).send(deleteTodoItemOnSaveMongoDbErrorResponse.toObject());
+                        } else {
+                            console.log(updatedTodoItemEmployee);
+                            const deleteTodoItemSuccessResponse = new BaseResponse('200', 'Removed item from the To Do list.', updatedTodoItemEmployee);
+                            res.json(deleteTodoItemSuccessResponse.toObject());
+                        }
+                    })
+                } else if (doneItem) {
+                    employee.done.id(doneItem._id).remove();
+                    employee.save(function(err, updatedDoneItemEmployee) {
+                        if (err) {
+                            console.log(err);
+                            const deleteDoneItemOnSaveMongoDbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
+                            res.status(500).send(deleteDoneItemOnSaveMongoDbErrorResponse.toObject());
+                        } else {
+                            console.log(updateDoneItemEmployee);
+                            const deleteDoneItemSuccessResponse = new BaseResponse('200', 'Removed item from the Done.', updatedDoneItemEmployee);
+                            res.json(deleteDoneItemSuccessResponse.toObject());
+                        }
+                    })
+                } else {
+                    console.log('Invalid task Id');
+                    const deleteTaskNotFoundResponse = new ErrorResponse('500', 'Unable to locate the requested Task Id.', null);
+                    res.status(500).send(deleteTaskNotFoundResponse.toObject());
+                }
             }
         })
-        .catch(err => {
-            res.status(500).send({
-                message: 'Error. Could not delete' + taskId
-            });
-        });
-});
+    } catch (e) {
+        console.log(e);
+        const deleteTaskCatchErrorResponse = new ErrorResponse('500', 'Internal Server Error', e.message);
+        res.status(500).send(deleteTaskCatchErrorResponse.toObject());
+    }
+
+})
 
 //Makes APIs global for application
 module.exports = router;
