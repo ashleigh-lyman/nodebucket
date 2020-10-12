@@ -1,0 +1,25 @@
+/*About Component CSS page*/
+
+.main-welcome {
+    margin-top: 40px;
+    width: 98%;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+/*About me title*/
+
+.title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+}
+
+
+/*About me paragraphs*/
+
+.aboutContent {
+    width: 60%;
+    margin: 0 auto;
+}

@@ -23,25 +23,3 @@
     position: absolute;
     width: 100%;
 }
-
-
-/* Base-layout Component page css */
-
-.footer-content {
-    font-size: 16px;
-    font-weight: lighter;
-    padding-left: 100px;
-    letter-spacing: 3px;
-}
-
-.bu-link {
-    text-decoration: none;
-}
-
-.bu-link:hover {
-    text-decoration: underline;
-}
-
-body {
-    background-color: white;
-}

@@ -205,7 +205,7 @@ router.delete('/:empId/tasks/:taskId', async(req, res) => {
                             const deleteDoneItemOnSaveMongoDbErrorResponse = new ErrorResponse('500', 'Internal Server Error', err);
                             res.status(500).send(deleteDoneItemOnSaveMongoDbErrorResponse.toObject());
                         } else {
-                            console.log(updateDoneItemEmployee);
+                            console.log(updatedDoneItemEmployee);
                             const deleteDoneItemSuccessResponse = new BaseResponse('200', 'Removed item from the Done.', updatedDoneItemEmployee);
                             res.json(deleteDoneItemSuccessResponse.toObject());
                         }

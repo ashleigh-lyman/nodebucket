@@ -37,7 +37,7 @@ export class SigninComponent implements OnInit {
   }
 
   //login function
-  //Grabs form data and sets cookieservice on user input
+  //Grabs form data and sets cookie service on user input
   login() {
     const empId = this.form.controls['empId'].value;
       this.http.get('/api/employees/' + empId).subscribe(res => {

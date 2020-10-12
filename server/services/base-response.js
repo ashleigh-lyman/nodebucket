@@ -8,7 +8,7 @@
 ;===========================================
 */
 
-
+//Base response class and functions to format and gather data to be displayed
 class BaseResponse {
     constructor(httpCode, message, data) {
         this.httpCode = httpCode;

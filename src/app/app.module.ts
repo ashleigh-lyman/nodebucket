@@ -12,6 +12,7 @@
 //Import statements
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -28,9 +29,16 @@ import { SigninComponent } from './pages/signin/signin.component';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDividerModule } from '@angular/material/divider';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CookieService } from 'ngx-cookie-service';
 import { RouterModule } from '@angular/router';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
+import { AboutComponent } from './pages/about/about.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -40,7 +48,9 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     BaseLayoutComponent,
     AuthLayoutComponent,
     SigninComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreateTaskDialogComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +66,12 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule
+    RouterModule,
+    MatSnackBarModule,
+    MatDividerModule,
+    DragDropModule,
+    MatDialogModule,
+    MatMenuModule
   ],
   providers: [
     CookieService

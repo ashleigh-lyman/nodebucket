@@ -9,6 +9,7 @@
 */
 
 
+//Error response class and functions to format and gather collected data
 class ErrorResponse {
     constructor(httpCode, message, data) {
         this.httpCode = httpCode;
