@@ -10,8 +10,6 @@
 
 
 const express = require('express');
-const { consoleTestResultHandler } = require('tslint/lib/test');
-const { readJsonConfigFile } = require('typescript');
 const Employee = require('../models/employee');
 const BaseResponse = require('../services/base-response');
 const ErrorResponse = require('../services/error-response');
@@ -171,6 +169,7 @@ router.put('/:empId/tasks', async(req, res) => {
 //API: deleteTask
 //Removes/deletes a task from either list
 router.delete('/:empId/tasks/:taskId', async(req, res) => {
+    console.log(req.params.taskId);
 
     try {
         Employee.findOne({ 'empId': req.params.empId }, function(err, employee) {

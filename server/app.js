@@ -16,7 +16,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 const EmployeeApi = require('./routes/employee-api');
-
 //gives access to employee model in employee.js
 const Employee = require('./models/employee');
 
@@ -35,7 +34,7 @@ app.use('/', express.static(path.join(__dirname, '../dist/nodebucket')));
 
 
 //Variables
-const port = 3000; // server port
+const port = process.env.PORT || 3000; // server port
 
 // TODO: This line will need to be replaced with your actual database connection string
 const conn = 'mongodb+srv://web450_user:Lymanfamily1@buwebdev-cluster-1.akyor.mongodb.net/nodebucket?retryWrites=true&w=majority';

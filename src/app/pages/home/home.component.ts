@@ -8,7 +8,7 @@
 ;===========================================
 */
 
-//Import statements
+/*Import statements*/
 import { CreateTaskDialogComponent } from '../../shared/create-task-dialog/create-task-dialog.component';
 import { CookieService } from 'ngx-cookie-service';
 import { Component, OnInit } from '@angular/core';
@@ -26,7 +26,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class HomeComponent implements OnInit {
 
-  //tasks: any
+  //tasks: any;
   todo: Item[];
   done: Item[];
   employee: Employee;
@@ -61,11 +61,12 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-//Event listener for drag and drop
+/*Event listener for drag and drop*/
 
+  // tslint:disable-next-line: typedef
   drop(event: CdkDragDrop<any[]>) {
     if(event.previousContainer === event.container) {
-      //updates order of array
+      /*updates order of array*/
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
 
       console.log('Reordered the list of task items.');

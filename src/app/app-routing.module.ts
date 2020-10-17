@@ -22,7 +22,6 @@ import { AboutComponent } from './pages/about/about.component';
 
 
 
-//Define Routes
 const routes: Routes = [
   {
     path: '',

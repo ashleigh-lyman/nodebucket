@@ -9,7 +9,7 @@
 */
 
 
-//Import statements
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -32,9 +32,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatDividerModule } from '@angular/material/divider';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { CookieService } from 'ngx-cookie-service';
-import { RouterModule } from '@angular/router';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { CookieService } from 'ngx-cookie-service';import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { CreateTaskDialogComponent } from './shared/create-task-dialog/create-task-dialog.component';
 import { AboutComponent } from './pages/about/about.component';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -66,7 +64,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    RouterModule,
     MatSnackBarModule,
     MatDividerModule,
     DragDropModule,
